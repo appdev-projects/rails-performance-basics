@@ -549,6 +549,7 @@ DEPENDENCIES
   http
   importmap-rails
   jbuilder
+  minitest
   pg (~> 1.1)
   propshaft
   pry (~> 0.16)
