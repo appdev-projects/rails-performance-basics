@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit likes update destroy ]
 
-  def show
+  def index
     @photos = Photo.all.limit(25)
     render layout: false
   end
