@@ -1,15 +1,15 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 8.0.2"               # The web framework
+gem "rails", "~> 8.1"               # The web framework
 gem "propshaft"                       # Asset pipeline (CSS, JS, images)
-gem "pg", "~> 1.1"                    # PostgreSQL database adapter
-gem "puma", ">= 5.0"                  # Web server
+gem "pg", "~> 1.6"                    # PostgreSQL database adapter
+gem "puma", "~> 7.2"                  # Web server
 gem "importmap-rails"                 # JavaScript with ESM import maps
 gem "turbo-rails"                     # Hotwire page acceleration (SPA-like)
 gem "stimulus-rails"                  # Hotwire JavaScript framework
 gem "jbuilder"                        # Build JSON APIs
 gem "solid_cache"                     # Database-backed Rails.cache
-gem "solid_queue"                     # Database-backed Active Job
+gem "solid_queue", "~> 1.3"                     # Database-backed Active Job
 gem "solid_cable"                     # Database-backed Action Cable
 gem "bootsnap", require: false        # Faster boot times via caching
 gem "thruster", require: false        # HTTP caching/compression for Puma
