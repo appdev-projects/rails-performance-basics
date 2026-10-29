@@ -29,6 +29,14 @@
 
 en:
   hints:
+    eager_load_owner: |
+      In `PhotosController#index`, eager load the association the template uses: `Photo.includes(:owner)`. Rails then fetches all the owners in one `WHERE "users"."id" IN (...)` query.
+    counter_cache: |
+      `photo.comments.count` runs `SELECT COUNT(*)` for every photo. The `comments_count` column on photos is a counter cache that already holds that number, so the template can print `photo.comments_count` instead.
+    attached_image: |
+      Each `url_for(photo.image)` looks up the photo's Active Storage attachment and blob. Add `.with_attached_image` to the query in the controller to load them for all 25 photos at once.
+    query_total: |
+      Put the fixes together: `Photo.includes(:owner).with_attached_image` in the controller, and `photo.comments_count` in the template. Check the `(N queries, M cached)` part of the `Completed` line in the server log.
     randomness: This test deals with randomness. If you think your code is correct but the test failed anyway, you might have just gotten unlucky; try running the test a couple more times.
     copy_must_match: Make sure that the text exactly matches the target, including capitalization.
     button_type: If you're not being sent anywhere when you click submit and you have an attribute `type="button"` on your `<button>` element, try removing it or changing it to `type="submit"`. Also, ensure that the `<button>` is within the `<form></form>`.
