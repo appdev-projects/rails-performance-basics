@@ -12,7 +12,7 @@ describe "/photos" do
       "Expected at most 2 'User Load' queries while rendering /photos, but there were #{counts["User Load"]}. Each photo's owner is being looked up one at a time."
   end
 
-  it "reads each photo's comment count from the counter cache column, with no COUNT queries", points: 2, hint: h("counter_cache") do
+  it "reads each photo's comment count from the counter cache column, with no COUNT queries", points: 2, hint: h("read_counter_cache") do
     user = seed_photos
     sign_in(user)
 
